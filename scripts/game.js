@@ -17,14 +17,17 @@ function game() {
     }
     var paddleA = {
         speed: 3,
-        x: $("#paddleA").width() + $("#paddleA").position().left,
+        x1: $("#paddleA").position().left,
+        x2: $("#paddleA").position().left + $("#paddleA").width(),
         y1: $("#paddleA").position().top,
         y2: $("#paddleA").position().top + $("#paddleA").height()
     };
     var paddleB = {
         speed: 3,
-        x: $("#paddleB").position().left,
-        y: 100
+        x1: $("#paddleB").position().left,
+        x2: $("#paddleB").position().left + $("#paddleB").width(),
+        y1: $("#paddleB").position().top,
+        y2: $("#paddleB").position().top + $("#paddleB").height()
     }
     // Set main loop to be called on the desired frame rate
     setInterval(gameLoop, 1000 / 60);
@@ -60,12 +63,18 @@ function game() {
             ball.directionX = 1
         }
         //paddleA
-        if (ball.x + ball.speed * ball.directionX< paddleA.x) {
-        
-            ball.directionX = 1};
+        if (ball.x + ball.speed * ball.directionX < paddleA.x2 &&
+            ball.y + ball.speed * ball.directionY > paddleA.y1 &&
+            ball.y + ball.speed * ball.directionY < paddleA.y2 )
+        {
+            ball.directionX = 1
+        }
         
         // paddleB 
-        if (ball.x + ball.speed * ball.directionX + ball.width> paddleB.x) {
+        if (ball.x + ball.speed * ball.directionX < paddleB.x1 &&
+            ball.y + ball.speed * ball.directionY > paddleB.y1 &&
+            ball.y + ball.speed * ball.directionY < paddleB.y2 )
+        {
             ball.directionX = -1
         }
 
