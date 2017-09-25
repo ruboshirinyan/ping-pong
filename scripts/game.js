@@ -2,8 +2,8 @@ function game() {
     $("<div/>").attr("id", "content").appendTo("body")
     $("<div/>").attr("id", "game").appendTo("#content")
     $("<div/>").attr("id", "ball").appendTo("#game")
-    $("<div/>").attr("id", "paddleA").attr("class", "paddle").appendTo("#game").css("left", "10px").css("top", "100")
-    $("<div/>").attr("id", "paddleB").attr("class", "paddle").appendTo("#game").css("left", "570px").css("top", "100")
+    $("<div/>").attr("id", "paddleA").attr("class", "paddle").appendTo("#game");
+    $("<div/>").attr("id", "paddleB").attr("class", "paddle").appendTo("#game");
 
 
     var ball = {
@@ -65,16 +65,14 @@ function game() {
         //paddleA
         if (ball.x + ball.speed * ball.directionX < paddleA.x2 &&
             ball.y + ball.speed * ball.directionY > paddleA.y1 &&
-            ball.y + ball.speed * ball.directionY < paddleA.y2 )
-        {
+            ball.y + ball.speed * ball.directionY < paddleA.y2) {
             ball.directionX = 1
         }
-        
+
         // paddleB 
-        if (ball.x + ball.speed * ball.directionX < paddleB.x1 &&
-            ball.y + ball.speed * ball.directionY > paddleB.y1 &&
-            ball.y + ball.speed * ball.directionY < paddleB.y2 )
-        {
+        if (ball.x + ball.speed * ball.directionX + $("#ball").width() > paddleB.x1 &&
+            ball.y + ball.speed * ball.directionY + $("#ball").width() > paddleB.y1 &&
+            ball.y + ball.speed * ball.directionY < paddleB.y2) {
             ball.directionX = -1
         }
 
