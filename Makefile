@@ -7,6 +7,7 @@ all: publish
 publish: 
 	git config --global user.name "publisher" && \
 	git config --global user.email "publisher@git.hub" && \
+	git branch -D gh-pages && \
 	git checkout -b gh-pages && \
 	git add . && \
 	git commit -am 'update gh-pages' && \
