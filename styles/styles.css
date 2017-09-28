@@ -10,10 +10,10 @@
 }
 
 #ball {
-  background: grey;
+  background: #f9f906;
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   left: 290px;
   top: 140px;
   border-radius: 10px;
@@ -46,4 +46,11 @@
   left: 50%;
   font-size: 40px;
   font-family: lucida;
+}
+
+#score{
+  color: black;
+  position: absolute;
+  width: 40px;
+  height: 100px;
 }
